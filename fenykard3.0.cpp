@@ -1,5 +1,7 @@
-/* A fénykard továbbfejlesztése, futtatás argumentum nélkül, a szülőkönyvtárnak tartalmaznia kell a beolvasandó könyvtárakat,
-illetve adatbázist. A program létrehoz egy out.txt file-t a könyvtárak kivonatát (pontok feladat). Kimenetként csökkenően rendezve kirja
+/* A fénykard továbbfejlesztése, futtatás: argumentumként az olvasandó adatbázis neve,
+a szülőkönyvtárnak tartalmaznia kell a beolvasandó könyvtárakat,
+illetve adatbázist. A program létrehoz egy out.txt file-t a könyvtárak kivonatát (pontok feladat).
+Kimenetként csökkenően rendezve kirja
 a pontokkal rendelkező hallgatók nevét,*/
 
 #include <iostream>
@@ -11,7 +13,7 @@ a pontokkal rendelkező hallgatók nevét,*/
 #include <numeric>
 #include <math.h>
 
-#define ADATBAZIS_MERET 2000
+#define ADATBAZIS_MERET 3000
 #define NEVLISTA_MERET 200
 #define FELADATLISTA_MERET 50		//ideiglenes, terv szerint tömbméret igazítás lesz
 
@@ -123,10 +125,10 @@ void extr_nev(string nev){
 
 
 
-void bejar_db(){
+void bejar_db(char *db_nev){
 
 
-	ifstream db("db.csv");	
+	ifstream db(db_nev);	
 
 	if(!db.is_open()){
 		cerr<<"Nem jött össze!";
@@ -322,7 +324,7 @@ bejar((char*)"City/Debrecen/Oktatás/Informatika/Programozás/Tankönyv olvasás
 
 out.close();
 
-bejar_db();
+bejar_db(argv[1]);
 
 extr_feladat();
 
