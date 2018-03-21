@@ -1,5 +1,5 @@
 /* A fénykard továbbfejlesztése vektorokkal, így nem szükséges változtatni a programot változó adatbázis méretekre,
-futtatás argumentum nélkül, a szülőkönyvtárnak tartalmaznia kell a beolvasandó könyvtárakat,
+futtatás argumentumként a bemeneti adatbázis, a szülőkönyvtárnak tartalmaznia kell a beolvasandó könyvtárakat,
 illetve adatbázist. A program létrehoz egy out.txt file-t a könyvtárak kivonatát (pontok feladat). Kimenetként csökkenően rendezve kirja
 a pontokkal rendelkező hallgatók nevét. */
 
