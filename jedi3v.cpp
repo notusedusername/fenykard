@@ -6,7 +6,7 @@ A --trad-lab-mark kapcsolóval a védéssel rendelkező hallgatők nevét, jegye
 
 Fordítás: g++ jediv3.cpp -o [amitszeretnél] -std=c++11(opcionális)
 
-Futtatás: ./jediv3.cpp [adatbázis_neve] --trad-lab-mark(opcionális)*/
+Futtatás: ./[amitszeretnel] [adatbázis_neve] --trad-lab-mark(opcionális)*/
 
 #include <boost/sort/spreadsort/string_sort.hpp>
 #include <iostream>
