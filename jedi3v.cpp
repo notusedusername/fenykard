@@ -1,7 +1,12 @@
 /* A fénykard továbbfejlesztése vektorokkal, így nem szükséges változtatni a programot változó adatbázis méretekre,
 futtatás argumentumként a bemeneti adatbázis, a szülőkönyvtárnak tartalmaznia kell a beolvasandó könyvtárakat,
 illetve adatbázist. A program létrehoz egy out.txt file-t a könyvtárak kivonatát (pontok feladat). Kimenetként csökkenően rendezve kirja
-a pontokkal rendelkező hallgatók nevét. */
+a pontokkal rendelkező hallgatók nevét, illetve képes név szerint hallgatóra keresni, javaslatot adni, ha van hasonló név.
+A --trad-lab-mark kapcsolóval a védéssel rendelkező hallgatők nevét, jegyeinek átlagát és védéseinek átlagát írja ki.
+
+Fordítás: g++ jediv3.cpp -o [amitszeretnél] -std=c++11(opcionális)
+
+Futtatás: ./jediv3.cpp [adatbázis_neve] --trad-lab-mark(opcionális)*/
 
 #include <boost/sort/spreadsort/string_sort.hpp>
 #include <iostream>
