@@ -1,3 +1,4 @@
+
 /* A fénykard továbbfejlesztése vektorokkal, így nem szükséges változtatni a programot változó adatbázis méretekre,
 futtatás argumentumként a bemeneti adatbázis, a szülőkönyvtárnak tartalmaznia kell a beolvasandó könyvtárakat,
 illetve adatbázist. A program létrehoz egy out.txt file-t a könyvtárak kivonatát (pontok feladat). Kimenetként csökkenően rendezve kirja
@@ -6,7 +7,9 @@ A --trad-lab-mark kapcsolóval a védéssel rendelkező hallgatők nevét, jegye
 
 Fordítás: g++ jediv3.cpp -o [amitszeretnél] -std=c++11(opcionális)
 
-Futtatás: ./[amitszeretnel] [adatbázis_neve] --trad-lab-mark(opcionális)*/
+
+Futtatás: ./[amitszeretnél] [adatbázis_neve] --trad-lab-mark(opcionális)*/
+
 
 #include <boost/sort/spreadsort/string_sort.hpp>
 #include <iostream>
@@ -193,16 +196,25 @@ int kivon( string line){
 	
 	int counter=0;
 	
+	bool flag = false;
+
 	std::vector<int> szamjegyek;			// A beolvasott sorból megkeressi a számjegyeket	
 											//vektorba rakja, és helyiértékenként összerakja egy számmá.		
 
 	for(int i=line.length(); i>0; i--){
 		
-		if(isdigit (line[i])){
-			
-			int szamjegy=line[i]-'0';			// - '0' , hogy ne az ASCII értéket adja vissza.
-			
-			szamjegyek.push_back(szamjegy);
+		if ( line [i - 1] == ' '){
+
+			flag = true;
+
+			if(isdigit (line[i]) && flag == true ){
+				
+				
+				int szamjegy=line[i]-'0';			// - '0' , hogy ne az ASCII értéket adja vissza.
+				
+				szamjegyek.push_back(szamjegy);
+
+			}
 		}
 	}
 	
@@ -595,11 +607,19 @@ void vedes(char* argv){
 			cout<<"----------------------------------------------------------\n";
 		}
 	}
+	
+	/*
+	for (int j = 0 ; j < nevlista.size(); j++ ){
 
+		//if ( eredmenyv[j] == 5 )
+			cout<<nevlista[j]<< " #"<<teljesitett[j]<<" mark: " << eredmenyv[j]<<endl;
+
+	}
+	*/
 
 }
 
-
+	
 int main(int argc, char *argv[]){
 
 														//cout<<"Usage: "<<argv[0]<< " db_name --trad-lab-mark(optional)" <<endl;
@@ -674,10 +694,11 @@ int main(int argc, char *argv[]){
 							
 							if ( adat_nev[adatsz] == nevlista[nevsz])
 									
-								if(fel_pont[feladatsz] != "")
+								if(fel_pont[feladatsz] != ""){
 										
 									nev_pont[nevsz] += stoi(fel_pont[feladatsz]);				//konvertálni kell, mert stringben van tárolva
-								
+									cout<<nevlista[nevsz]<< " " << feladat [feladatsz] <<" "<< fel_pont[feladatsz]<<endl;
+								}
 								
 						
 						}
@@ -725,7 +746,7 @@ int main(int argc, char *argv[]){
 
 				int szam = 0;
 
-				cout<<"FUTURE PONTLISTA:\n\n";
+				cout<<"FUTURE PONTLISTA:\n\n 5:--------------\n\n";
 
 				for(int i = 0; i < nevlista.size(); i++){
 
@@ -733,10 +754,17 @@ int main(int argc, char *argv[]){
 						
 						szam++;
 
-						cout<<szam<<".\t"<<nevlista[i]<<" "<<nev_pont[i]<<endl;									//amíg nem üres, hogy kerüljük az üres köröket.
-					
-						/*if ( szam == 30 )
-							cout<< "\n ----------- JEGYMEGAJANLAS VEGE-------------- \n"<<endl;*/
+						cout<<szam<<".\t"<<nevlista[i]<<" "<<nev_pont[i]<<endl;									//amíg nem üres, hogy kerüljük az üres köröket
+						
+						if ( szam == 7 )
+							cout<<"\n 4:--------------\n\n";
+
+						if (szam == 22 )
+
+							cout<<"\n 3:--------------\n\n";
+
+						if ( szam == 45 )
+							cout<< "\n ----------- JEGYMEGAJANLAS VEGE-------------- \n"<<endl;
 															}
 				}
 				
@@ -759,10 +787,6 @@ int main(int argc, char *argv[]){
 	
 	else
 		vedes(argv[1]);
-			
-
-	
-	
-
+		
 	return 0;
 }
