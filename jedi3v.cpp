@@ -102,14 +102,17 @@ void extr_feladat(){
 void extr_nev(string nev){
 	
 	
-	
 	inditas++;
-	
-	if (inditas == 1)
-			nevlista.push_back(nev);
-			
-		
 
+	
+	
+	if (inditas == 1){
+	
+		
+			nevlista.push_back(nev);
+	}
+		
+/*
 	int i=-1;
 
 	do	
@@ -120,14 +123,20 @@ void extr_nev(string nev){
 		}
 	while  (nev != nevlista[i] && i <= nevlista.size() && nevlista[i] != "");
 
+
+
 	if ( nev != nevlista[i])
 			
 		nevlista.push_back(nev);
-			
-	
-
-
-	
+*/			
+	 if ( std::find(nevlista.begin(), nevlista.end(), nev) == nevlista.end() )	{
+	 	
+		nevlista.push_back(nev);
+	}
+	/*for ( int i = 0; i < nevlista.size(); i++){
+		cout<<nevlista[i]<<endl;
+	}
+	*/	
 }
 
 
@@ -697,7 +706,7 @@ int main(int argc, char *argv[]){
 								if(fel_pont[feladatsz] != ""){
 										
 									nev_pont[nevsz] += stoi(fel_pont[feladatsz]);				//konvertálni kell, mert stringben van tárolva
-									cout<<nevlista[nevsz]<< " " << feladat [feladatsz] <<" "<< fel_pont[feladatsz]<<endl;
+									//cout<<nevlista[nevsz]<< " " << feladat [feladatsz] <<" "<< fel_pont[feladatsz]<<endl;
 								}
 								
 						
