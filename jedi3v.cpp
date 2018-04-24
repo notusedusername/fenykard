@@ -133,10 +133,7 @@ void extr_nev(string nev){
 	 	
 		nevlista.push_back(nev);
 	}
-	/*for ( int i = 0; i < nevlista.size(); i++){
-		cout<<nevlista[i]<<endl;
-	}
-	*/	
+		
 }
 
 
